@@ -26,6 +26,7 @@
   </head>
   <body>
     <div class="background-blur"></div>
+
     <div
       class="container d-flex flex-column align-items-center justify-content-center min-vh-100 text-center"
     >
@@ -62,13 +63,30 @@
   Seu navegador não suporta áudio.
 </audio>
 <script>
-  // Dá play assim que o usuário interagir com a página
+  const audio = document.getElementById('musica');
+
+  window.addEventListener('load', () => {
+    playAudioSafe();
+  });
+
   document.addEventListener('click', () => {
-    const audio = document.getElementById('musica');
-    if (audio && audio.paused) {
-      audio.play().catch(() => {});
+    playAudioSafe();
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      audio.pause();
+    } else {
+      playAudioSafe();
     }
   });
+
+  function playAudioSafe() {
+    if (audio && audio.paused) {
+      audio.play().catch(() => {}); 
+    }
+  }
+</script>
 </script>
   </body>
 </html>
