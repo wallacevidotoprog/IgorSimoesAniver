@@ -57,5 +57,18 @@
         </p>
       </div>
     </div>
+    <audio id="musica" autoplay loop>
+  <source src="audio/aud.mpeg" type="audio/mpeg" />
+  Seu navegador não suporta áudio.
+</audio>
+<script>
+  // Dá play assim que o usuário interagir com a página
+  document.addEventListener('click', () => {
+    const audio = document.getElementById('musica');
+    if (audio && audio.paused) {
+      audio.play().catch(() => {});
+    }
+  });
+</script>
   </body>
 </html>
