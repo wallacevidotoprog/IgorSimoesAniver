@@ -1,0 +1,84 @@
+/* body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('img/bk.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  
+} */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* escurece o fundo */
+  z-index: -1;
+}
+.background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('img/bk.png') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(2px);
+  z-index: -2;
+}
+.neon-card {
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 20px #00f, 0 0 40px #0ff;
+}
+
+.neon-text {
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid #f0f;
+  box-shadow: 0 0 15px #f0f;
+  display: block;
+}
+
+.convite-msg {
+  font-size: 1.1em;
+  color: #fff;
+  text-shadow: 0 0 4px #f0f;
+}
+
+.endereco {
+  font-size: 1.05em;
+  color: #ccc;
+}
+
+.map-link {
+  color: #0ff;
+  text-decoration: none;
+}
+.idade-neon {
+  font-size: 2em;
+  color: #f0f;
+  text-shadow:
+    0 0 5px #f0f,
+    0 0 10px #f0f,
+    0 0 20px #f0f;
+  margin-bottom: 1rem;
+}
+.data-horario {
+  font-size: 1.3em;
+  color: #0ff;
+  text-shadow:
+    0 0 4px #0ff,
+    0 0 10px #0ff;
+  margin-bottom: 1.5rem;
+}
