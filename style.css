@@ -1,12 +1,13 @@
-/* body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: url('img/bk.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  
-} */
-
+.container {
+  position: relative;
+  /* top: 40%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+}
 body::before {
   content: "";
   position: fixed;
@@ -23,7 +24,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('img/bk.png') no-repeat center center fixed;
+  background: url("img/bk.png") no-repeat center center fixed;
   background-size: cover;
   filter: blur(2px);
   z-index: -2;
@@ -34,6 +35,7 @@ body::before {
   max-width: 400px;
   width: 100%;
   box-shadow: 0 0 20px #00f, 0 0 40px #0ff;
+  top: 20px;
 }
 
 .neon-text {
@@ -68,17 +70,73 @@ body::before {
 .idade-neon {
   font-size: 2em;
   color: #f0f;
-  text-shadow:
-    0 0 5px #f0f,
-    0 0 10px #f0f,
-    0 0 20px #f0f;
+  text-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 20px #f0f;
   margin-bottom: 1rem;
 }
 .data-horario {
   font-size: 1.3em;
   color: #0ff;
-  text-shadow:
-    0 0 4px #0ff,
-    0 0 10px #0ff;
+  text-shadow: 0 0 4px #0ff, 0 0 10px #0ff;
   margin-bottom: 1.5rem;
+}
+.audio-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  border-bottom: 2px solid #39ff14;
+  box-shadow: 0 0 5px #39ff14;
+  z-index: 1000;
+}
+
+.neon-btn {
+  background-color: transparent;
+  border: 1px solid #39ff14;
+  color: #39ff14;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 16px;
+  box-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14;
+  transition: 0.3s ease;
+}
+
+.neon-btn:hover {
+  background-color: rgba(57, 255, 20, 0.2);
+  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+}
+.footer-fixed-neon {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(6px);
+  color: #39ff14;
+  border-top: 2px solid #39ff14;
+  box-shadow: 0 -2px 10px #39ff14;
+  font-size: 0.9rem;
+  z-index: 1;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.footer-fixed-neon strong {
+  color: white;
+}
+
+.footer-fixed-neon a.whatsapp-link {
+  color: #25d366;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.footer-fixed-neon a.whatsapp-link:hover {
+  transform: scale(1.2);
+  color: #1ebe5d;
+}
+
+@media (max-width: 600px) {
+  .neon-card {
+    top: -25px;
+  }
 }

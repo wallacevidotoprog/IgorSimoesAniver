@@ -1,29 +1,47 @@
-const convidados = {
-  "ricardo": {
-    nome: "Ricardo",
-    idade: 30,
-    foto: "https://via.placeholder.com/180", // Substitua por foto real
-    endereco: "Rua das Festas, 90 - São Paulo, SP"
-  },
-  "ana": {
-    nome: "Ana",
-    idade: 25,
-    foto: "https://via.placeholder.com/180",
-    endereco: "Av. Neon, 123 - Rio de Janeiro, RJ"
+const audio = document.getElementById("musica");
+const btn = document.getElementById("toggle-audio");
+const icon = document.getElementById("audio-icon");
+
+window.addEventListener("load", () => {
+  playAudioSafe();
+});
+
+document.addEventListener("click", () => {
+  playAudioSafe();
+});
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    audio.pause();
+  } else {
+    playAudioSafe();
   }
-};
+});
+btn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  toggleAudio();
+});
+function playAudioSafe() {
+  if (audio && audio.paused) {
+    audio.play(updateIcon()).catch(() => {});
+  }
+  else{
+     audio.pause();
+      updateIcon();
+  }
+}
 
-const params = new URLSearchParams(window.location.search);
-const nome = new URLSearchParams(window.location.search).get("nome");
-const convidado = convidados[path.toLowerCase()];
-
-if (convidado) {
-  document.getElementById("nome").textContent = convidado.nome;
-  document.getElementById("idade").textContent = convidado.idade;
-  document.getElementById("foto").src = convidado.foto;
-  document.getElementById("endereco").textContent = convidado.endereco;
-  document.getElementById("link-mapa").href =
-    `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(convidado.endereco)}`;
-} else {
-  document.body.innerHTML = "<h2 style='color:#f00;'>Convite não encontrado 😢</h2>";
+function updateIcon() {
+  icon.className = audio.paused ? "bi bi-play-fill" : "bi bi-pause-fill";
+}
+function toggleAudio() {
+  if (audio.paused) {
+    audio
+      .play()
+      .then(updateIcon)
+      .catch(() => {});
+  } else {
+    audio.pause();
+    updateIcon();
+  }
 }
